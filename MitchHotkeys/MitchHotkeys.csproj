@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2BCE8E88-A609-401D-B5E8-19CACE561A08}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MitchHotkeys</RootNamespace>
+    <AssemblyName>MitchHotkeys</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="libvideo, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\libvideo.dll</HintPath>
+    </Reference>
+    <Reference Include="MediaToolkit, Version=1.1.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MediaToolkit.1.1.0.1\lib\net40\MediaToolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NAudio">
+      <HintPath>References\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.WindowsMediaFormat">
+      <HintPath>References\NAudio.WindowsMediaFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.97.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>References\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Constants.cs" />
+    <Compile Include="DataTier\DataService.cs" />
+    <Compile Include="GroupEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GroupEditForm.Designer.cs">
+      <DependentUpon>GroupEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\HotkeyConfigurationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\HotkeyConfigurationForm.Designer.cs">
+      <DependentUpon>HotkeyConfigurationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\HotkeyEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\HotkeyEditForm.Designer.cs">
+      <DependentUpon>HotkeyEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MiddleTier\Factories\HotkeyTypeFactory.cs" />
+    <Compile Include="MiddleTier\MainLogic.cs" />
+    <Compile Include="MiddleTier\Model\GenericStructures\ReadWriteBuffer.cs" />
+    <Compile Include="MiddleTier\Model\Hotkey.cs" />
+    <Compile Include="MiddleTier\Model\HotkeyGroup.cs" />
+    <Compile Include="MiddleTier\Model\HotkeyTypeEnum.cs" />
+    <Compile Include="MiddleTier\Model\IHotkeyEvents.cs" />
+    <Compile Include="MiddleTier\Model\Sound\AudioPassthroughSettings.cs" />
+    <Compile Include="MiddleTier\Model\Sound\AutoTuneSettings.cs" />
+    <Compile Include="MiddleTier\Model\Sound\IPitchDetector.cs" />
+    <Compile Include="MiddleTier\Services\HotkeyTypes\AutoTuneDevicePassthroughHotkey.cs" />
+    <Compile Include="MiddleTier\Services\HotkeyTypes\ChangeAudioVolumeHotkey.cs" />
+    <Compile Include="MiddleTier\Services\HotkeyTypes\DevicePassthroughHotkey.cs" />
+    <Compile Include="MiddleTier\Services\HotkeyTypes\PlayInputDeviceRecordingFromMemory.cs" />
+    <Compile Include="MiddleTier\Services\HotkeyTypes\RunBatchSilentlyHotkey.cs" />
+    <Compile Include="MiddleTier\Services\HotkeyTypes\RunFileHotkey.cs" />
+    <Compile Include="MiddleTier\Services\HotkeyTypes\SaveInputDeviceRecordingToFile.cs" />
+    <Compile Include="MiddleTier\Services\HotkeyTypes\SaveInputDeviceRecordingToMemory.cs" />
+    <Compile Include="MiddleTier\Services\HotkeyTypes\StartRecordingInputDeviceHotkey.cs" />
+    <Compile Include="MiddleTier\Services\HotkeyTypes\StepDownAudioVolumeHotkey.cs" />
+    <Compile Include="MiddleTier\Services\HotkeyTypes\StepUpAudioVolumeHotkey.cs" />
+    <Compile Include="MiddleTier\Services\HotkeyTypes\DownloadYouTubeVideoHotkey.cs" />
+    <Compile Include="MiddleTier\Services\HotkeyTypes\StopRecordingInputDeviceHotkey.cs" />
+    <Compile Include="MiddleTier\Services\HotkeyTypes\ToggleAudioHotkey.cs" />
+    <Compile Include="MiddleTier\Services\HotkeyTypes\StopAudioAllDevicesHotkey.cs" />
+    <Compile Include="MiddleTier\Services\HotkeyTypes\StopAudioDeviceHotkey.cs" />
+    <Compile Include="MiddleTier\Services\HotkeyTypes\PlayAudioHotkey.cs" />
+    <Compile Include="MiddleTier\Services\Misc\GlobalHotkeyAlternative.cs" />
+    <Compile Include="MiddleTier\Services\Misc\GlobalHotkeyService.cs" />
+    <Compile Include="MiddleTier\Services\Sound\AudioPassthrough.cs" />
+    <Compile Include="MiddleTier\Services\Sound\AudioPlaybackEngine.cs" />
+    <Compile Include="MiddleTier\Services\Sound\AudioRecorder.cs" />
+    <Compile Include="MiddleTier\Services\Sound\AutoDisposeFileReader.cs" />
+    <Compile Include="MiddleTier\Services\Sound\AutoTuneWaveProvider.cs" />
+    <Compile Include="MiddleTier\Services\Sound\CachedSound.cs" />
+    <Compile Include="MiddleTier\Services\Sound\CachedSoundSampleProvider.cs" />
+    <Compile Include="MiddleTier\Services\Sound\AutoCorrelator.cs" />
+    <Compile Include="MiddleTier\Services\Sound\DataStructures\PitchShifter.cs" />
+    <Compile Include="MiddleTier\Services\Sound\HotkeyAudioDevice.cs" />
+    <Compile Include="MiddleTier\Services\Sound\JoeWaveInProvider.cs" />
+    <Compile Include="MiddleTier\Services\Sound\JoeWaveOut.cs" />
+    <Compile Include="MiddleTier\Services\Sound\MainAudio.cs" />
+    <Compile Include="MiddleTier\Services\Sound\DataStructures\SmbPitchShift.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\CustomHotkeyEditForm\HotkeyEditAudioAutoTunePassthroughForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CustomHotkeyEditForm\HotkeyEditAudioAutoTunePassthroughForm.Designer.cs">
+      <DependentUpon>HotkeyEditAudioAutoTunePassthroughForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CustomHotkeyEditForm\HotkeyEditAudioInputOutputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CustomHotkeyEditForm\HotkeyEditAudioInputOutputForm.Designer.cs">
+      <DependentUpon>HotkeyEditAudioInputOutputForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CustomHotkeyEditForm\HotkeyEditAudioInputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CustomHotkeyEditForm\HotkeyEditAudioInputForm.Designer.cs">
+      <DependentUpon>HotkeyEditAudioInputForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CustomHotkeyEditForm\HotkeyEditFileBrowseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CustomHotkeyEditForm\HotkeyEditFileBrowseForm.Designer.cs">
+      <DependentUpon>HotkeyEditFileBrowseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CustomHotkeyEditForm\HotkeyEditAudioForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CustomHotkeyEditForm\HotkeyEditAudioForm.Designer.cs">
+      <DependentUpon>HotkeyEditAudioForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Factories\HotkeyEditFormFactory.cs" />
+    <Compile Include="UI\HotkeyInputForms\DialogInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\HotkeyInputForms\DialogInfo.Designer.cs">
+      <DependentUpon>DialogInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\HotkeyInputForms\FileSaveInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\HotkeyInputForms\FileSaveInput.Designer.cs">
+      <DependentUpon>FileSaveInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\HotkeyInputForms\TextInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\HotkeyInputForms\TextInput.Designer.cs">
+      <DependentUpon>TextInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Model\HotkeyInputForms\TextInputResult.cs" />
+    <Compile Include="UI\Model\IHotkeyForm.cs" />
+    <Compile Include="UI\Model\Sound\AutoTuneViewModel.cs" />
+    <Compile Include="UI\Model\Sound\NoteViewModel.cs" />
+    <Compile Include="UI\Model\Sound\Scales.cs" />
+    <Compile Include="UI\Model\Validation\ValidationResult.cs" />
+    <Compile Include="UI\Services\HotkeyInputService.cs" />
+    <Compile Include="UI\Services\ValidationService.cs" />
+    <EmbeddedResource Include="GroupEditForm.resx">
+      <DependentUpon>GroupEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\HotkeyConfigurationForm.resx">
+      <DependentUpon>HotkeyConfigurationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\HotkeyEditForm.resx">
+      <DependentUpon>HotkeyEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UI\CustomHotkeyEditForm\HotkeyEditAudioAutoTunePassthroughForm.resx">
+      <DependentUpon>HotkeyEditAudioAutoTunePassthroughForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CustomHotkeyEditForm\HotkeyEditAudioInputOutputForm.resx">
+      <DependentUpon>HotkeyEditAudioInputOutputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CustomHotkeyEditForm\HotkeyEditAudioInputForm.resx">
+      <DependentUpon>HotkeyEditAudioInputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CustomHotkeyEditForm\HotkeyEditFileBrowseForm.resx">
+      <DependentUpon>HotkeyEditFileBrowseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CustomHotkeyEditForm\HotkeyEditAudioForm.resx">
+      <DependentUpon>HotkeyEditAudioForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\HotkeyInputForms\DialogInfo.resx">
+      <DependentUpon>DialogInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\HotkeyInputForms\FileSaveInput.resx">
+      <DependentUpon>FileSaveInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\HotkeyInputForms\TextInput.resx">
+      <DependentUpon>TextInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\MitchHotkeys.MiddleTier.Model.Hotkey.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MitchHotkeys.UI.WPF\MitchHotkeys.UI.WPF.csproj">
+      <Project>{b3be5090-9889-491a-8531-cdb58abef20a}</Project>
+      <Name>MitchHotkeys.UI.WPF</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

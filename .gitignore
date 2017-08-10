@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/MitchHotkeys
+/MitchHotkeys/bin
+/MitchHotkeys/obj
+/MitchHotkeys.UI.WPF/bin
+/MitchHotkeys.UI.WPF/obj
+/packages
+*.suo
