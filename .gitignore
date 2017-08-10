@@ -13,3 +13,4 @@
 /MitchHotkeys.Logic.Models/obj
 /MitchHotkeys.UI.Models/obj
 /MitchHotkeys.UI.Models/bin
+*.user

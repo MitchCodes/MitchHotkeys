@@ -12,6 +12,7 @@ using MitchHotkeys.MiddleTier.Services.Misc;
 using System.Windows.Forms.Integration;
 using MitchHotkeys.UI.Model;
 using MitchHotkeys.Logic.Models;
+using MitchHotkeys.UI.WPF;
 
 namespace MitchHotkeys
 {
@@ -64,7 +65,9 @@ namespace MitchHotkeys
         private void btnConfigure_Click(object sender, EventArgs e) {
             if (GroupLoaded) {
                 if (Constants.UseXaml) {
-                    //GroupConfiguration grpConfig = new GroupConfiguration(MainLogic.Instance.Hotkeys);
+                    GroupConfiguration grpConfig = new GroupConfiguration(MainLogic.Instance.Hotkeys);
+                    ElementHost.EnableModelessKeyboardInterop(grpConfig);
+                    grpConfig.ShowDialog();
                 } else {
                     HotkeyConfigurationForm configForm = new HotkeyConfigurationForm(MainLogic.Instance.Hotkeys);
                     DialogResult result = configForm.ShowDialog();

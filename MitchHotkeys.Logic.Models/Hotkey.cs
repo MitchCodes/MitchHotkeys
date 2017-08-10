@@ -13,6 +13,7 @@ namespace MitchHotkeys.Logic.Models {
         private string _extraData3;
         private int _id = -1;
         private Dictionary<int, string> _additionalExtraData;
+        private string _description;
 
         public Hotkey()
         {
@@ -56,7 +57,6 @@ namespace MitchHotkeys.Logic.Models {
                 _command = value;
             }
         }
-
         public string ExtraData1
         {
             get { return _extraData1; }
@@ -79,6 +79,11 @@ namespace MitchHotkeys.Logic.Models {
         {
             get { return _additionalExtraData; }
             set { _additionalExtraData = value; }
+        }
+
+        public string Description {
+            get { return _description; }
+            set { _description = value; }
         }
 
         private int CalculateId()
