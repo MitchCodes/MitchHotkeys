@@ -1,13 +1,12 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
-using MitchHotkeys.MiddleTier.Factories;
-using MitchHotkeys.MiddleTier.Services.Misc;
-using MitchHotkeys.MiddleTier.Services.Sound;
+using MitchHotkeys.Logic.Factories;
 using MitchHotkeys.UI.Model;
 using MitchHotkeys.UI.Model.Validation;
 using MitchHotkeys.UI.Services;
 using MitchHotkeys.Logic.Models;
+using MitchHotkeys.Logic.Services.Sound;
 
 namespace MitchHotkeys.UI.CustomHotkeyEditForm
 {

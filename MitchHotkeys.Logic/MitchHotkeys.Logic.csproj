@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3C89D21F-1E2C-4844-8F28-17073DDBFE23}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MitchHotkeys.Logic</RootNamespace>
+    <AssemblyName>MitchHotkeys.Logic</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="libvideo">
+      <HintPath>..\References\libvideo.dll</HintPath>
+    </Reference>
+    <Reference Include="MediaToolkit, Version=1.1.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MediaToolkit.1.1.0.1\lib\net40\MediaToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio">
+      <HintPath>..\References\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.WindowsMediaFormat">
+      <HintPath>..\References\NAudio.WindowsMediaFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>..\References\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Factories\HotkeyTypeFactory.cs" />
+    <Compile Include="MainLogic.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\HotkeyTypes\AutoTuneDevicePassthroughHotkey.cs" />
+    <Compile Include="Services\HotkeyTypes\ChangeAudioVolumeHotkey.cs" />
+    <Compile Include="Services\HotkeyTypes\DevicePassthroughHotkey.cs" />
+    <Compile Include="Services\HotkeyTypes\DownloadYouTubeVideoHotkey.cs" />
+    <Compile Include="Services\HotkeyTypes\PlayAudioHotkey.cs" />
+    <Compile Include="Services\HotkeyTypes\PlayInputDeviceRecordingFromMemory.cs" />
+    <Compile Include="Services\HotkeyTypes\RunBatchSilentlyHotkey.cs" />
+    <Compile Include="Services\HotkeyTypes\RunFileHotkey.cs" />
+    <Compile Include="Services\HotkeyTypes\SaveInputDeviceRecordingToFile.cs" />
+    <Compile Include="Services\HotkeyTypes\SaveInputDeviceRecordingToMemory.cs" />
+    <Compile Include="Services\HotkeyTypes\StartRecordingInputDeviceHotkey.cs" />
+    <Compile Include="Services\HotkeyTypes\StepDownAudioVolumeHotkey.cs" />
+    <Compile Include="Services\HotkeyTypes\StepUpAudioVolumeHotkey.cs" />
+    <Compile Include="Services\HotkeyTypes\StopAudioAllDevicesHotkey.cs" />
+    <Compile Include="Services\HotkeyTypes\StopAudioDeviceHotkey.cs" />
+    <Compile Include="Services\HotkeyTypes\StopRecordingInputDeviceHotkey.cs" />
+    <Compile Include="Services\HotkeyTypes\ToggleAudioHotkey.cs" />
+    <Compile Include="Services\Misc\GlobalHotkeyAlternative.cs" />
+    <Compile Include="Services\Misc\GlobalHotkeyService.cs" />
+    <Compile Include="Services\Sound\AudioPassthrough.cs" />
+    <Compile Include="Services\Sound\AudioPassthroughSettings.cs" />
+    <Compile Include="Services\Sound\AudioPlaybackEngine.cs" />
+    <Compile Include="Services\Sound\AudioRecorder.cs" />
+    <Compile Include="Services\Sound\AutoCorrelator.cs" />
+    <Compile Include="Services\Sound\AutoDisposeFileReader.cs" />
+    <Compile Include="Services\Sound\AutoTuneWaveProvider.cs" />
+    <Compile Include="Services\Sound\CachedSound.cs" />
+    <Compile Include="Services\Sound\CachedSoundSampleProvider.cs" />
+    <Compile Include="Services\Sound\DataStructures\PitchShifter.cs" />
+    <Compile Include="Services\Sound\DataStructures\SmbPitchShift.cs" />
+    <Compile Include="Services\Sound\HotkeyAudioDevice.cs" />
+    <Compile Include="Services\Sound\JoeWaveInProvider.cs" />
+    <Compile Include="Services\Sound\JoeWaveOut.cs" />
+    <Compile Include="Services\Sound\MainAudio.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MitchHotkeys.Data\MitchHotkeys.Data.csproj">
+      <Project>{4540f159-aa88-4509-a7fe-be503dbc6aa4}</Project>
+      <Name>MitchHotkeys.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MitchHotkeys.Logic.Models\MitchHotkeys.Logic.Models.csproj">
+      <Project>{ab180ea6-f5b2-4896-8a64-13336277b5a1}</Project>
+      <Name>MitchHotkeys.Logic.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

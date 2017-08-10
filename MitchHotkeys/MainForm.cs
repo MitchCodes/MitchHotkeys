@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MitchHotkeys.MiddleTier;
-using MitchHotkeys.MiddleTier.Services.Misc;
 using System.Windows.Forms.Integration;
+using MitchHotkeys.Logic;
 using MitchHotkeys.UI.Model;
 using MitchHotkeys.Logic.Models;
+using MitchHotkeys.UI.Services;
 using MitchHotkeys.UI.WPF;
 
 namespace MitchHotkeys
@@ -19,12 +19,14 @@ namespace MitchHotkeys
     public partial class MainForm : Form
     {
         private MainLogic ml = null;
+        private HotkeyInputService _inputService;
         private bool GroupLoaded { get; set; }
         public MainForm()
         {
             InitializeComponent();
             GroupLoaded = false;
             btnConfigure.Enabled = false;
+            _inputService = HotkeyInputService.Instance;
         }
 
 

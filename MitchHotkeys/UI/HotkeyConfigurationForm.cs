@@ -7,13 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MitchHotkeys.DataTier;
-using MitchHotkeys.MiddleTier;
-using MitchHotkeys.MiddleTier.Factories;
-using MitchHotkeys.MiddleTier.Services.Misc;
+using MitchHotkeys.Logic;
+using MitchHotkeys.Logic.Factories;
 using MitchHotkeys.UI.Factories;
 using MitchHotkeys.UI.Model;
 using MitchHotkeys.Logic.Models;
+using MitchHotkeys.Logic.Services.Misc;
 
 namespace MitchHotkeys
 {

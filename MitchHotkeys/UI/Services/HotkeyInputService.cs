@@ -6,7 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MitchHotkeys.Logic;
 using MitchHotkeys.Logic.Models;
+using MitchHotkeys.Logic.Models.Delegates;
 
 namespace MitchHotkeys.UI.Services
 {
@@ -29,7 +31,23 @@ namespace MitchHotkeys.UI.Services
 
         private HotkeyInputService()
         {
-            
+            MainLogic.Instance.InputCallbacks.TextResultRequestCallback += RequestTextInput;
+            MainLogic.Instance.InputCallbacks.FileSaveRequestCallback += RequestFileSaveInput;
+            MainLogic.Instance.InputCallbacks.DisplayInfoRequestCallback += RequestDisplayInfo;
+        }
+
+        public void RequestTextInput(string formText, TextInputResultDelegate result) {
+            TextInputResult userResult = GetTextInput(formText);
+            result(userResult.Cancelled, userResult.Input);
+        }
+
+        public void RequestFileSaveInput(string filter, string formText, TextInputResultDelegate result) {
+            TextInputResult userResult = GetFileSaveInput(filter, formText);
+            result(userResult.Cancelled, userResult.Input);
+        }
+
+        public void RequestDisplayInfo(string info) {
+            DisplayDialogInfo(info);
         }
 
 

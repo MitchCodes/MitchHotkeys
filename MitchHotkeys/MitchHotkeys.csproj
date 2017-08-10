@@ -35,28 +35,14 @@
     <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
-    <Reference Include="libvideo, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\References\libvideo.dll</HintPath>
-    </Reference>
     <Reference Include="MediaToolkit, Version=1.1.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MediaToolkit.1.1.0.1\lib\net40\MediaToolkit.dll</HintPath>
       <Private>True</Private>
-    </Reference>
-    <Reference Include="NAudio">
-      <HintPath>References\NAudio.dll</HintPath>
-    </Reference>
-    <Reference Include="NAudio.WindowsMediaFormat">
-      <HintPath>References\NAudio.WindowsMediaFormat.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.SQLite, Version=1.0.97.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>References\System.Data.SQLite.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -71,14 +57,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
-    <Compile Include="DataTier\DataService.cs" />
     <Compile Include="GroupEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GroupEditForm.Designer.cs">
       <DependentUpon>GroupEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MiddleTier\Services\Sound\AudioPassthroughSettings.cs" />
     <Compile Include="UI\HotkeyConfigurationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,41 +81,6 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MiddleTier\Factories\HotkeyTypeFactory.cs" />
-    <Compile Include="MiddleTier\MainLogic.cs" />
-    <Compile Include="MiddleTier\Services\HotkeyTypes\AutoTuneDevicePassthroughHotkey.cs" />
-    <Compile Include="MiddleTier\Services\HotkeyTypes\ChangeAudioVolumeHotkey.cs" />
-    <Compile Include="MiddleTier\Services\HotkeyTypes\DevicePassthroughHotkey.cs" />
-    <Compile Include="MiddleTier\Services\HotkeyTypes\PlayInputDeviceRecordingFromMemory.cs" />
-    <Compile Include="MiddleTier\Services\HotkeyTypes\RunBatchSilentlyHotkey.cs" />
-    <Compile Include="MiddleTier\Services\HotkeyTypes\RunFileHotkey.cs" />
-    <Compile Include="MiddleTier\Services\HotkeyTypes\SaveInputDeviceRecordingToFile.cs" />
-    <Compile Include="MiddleTier\Services\HotkeyTypes\SaveInputDeviceRecordingToMemory.cs" />
-    <Compile Include="MiddleTier\Services\HotkeyTypes\StartRecordingInputDeviceHotkey.cs" />
-    <Compile Include="MiddleTier\Services\HotkeyTypes\StepDownAudioVolumeHotkey.cs" />
-    <Compile Include="MiddleTier\Services\HotkeyTypes\StepUpAudioVolumeHotkey.cs" />
-    <Compile Include="MiddleTier\Services\HotkeyTypes\DownloadYouTubeVideoHotkey.cs" />
-    <Compile Include="MiddleTier\Services\HotkeyTypes\StopRecordingInputDeviceHotkey.cs" />
-    <Compile Include="MiddleTier\Services\HotkeyTypes\ToggleAudioHotkey.cs" />
-    <Compile Include="MiddleTier\Services\HotkeyTypes\StopAudioAllDevicesHotkey.cs" />
-    <Compile Include="MiddleTier\Services\HotkeyTypes\StopAudioDeviceHotkey.cs" />
-    <Compile Include="MiddleTier\Services\HotkeyTypes\PlayAudioHotkey.cs" />
-    <Compile Include="MiddleTier\Services\Misc\GlobalHotkeyAlternative.cs" />
-    <Compile Include="MiddleTier\Services\Misc\GlobalHotkeyService.cs" />
-    <Compile Include="MiddleTier\Services\Sound\AudioPassthrough.cs" />
-    <Compile Include="MiddleTier\Services\Sound\AudioPlaybackEngine.cs" />
-    <Compile Include="MiddleTier\Services\Sound\AudioRecorder.cs" />
-    <Compile Include="MiddleTier\Services\Sound\AutoDisposeFileReader.cs" />
-    <Compile Include="MiddleTier\Services\Sound\AutoTuneWaveProvider.cs" />
-    <Compile Include="MiddleTier\Services\Sound\CachedSound.cs" />
-    <Compile Include="MiddleTier\Services\Sound\CachedSoundSampleProvider.cs" />
-    <Compile Include="MiddleTier\Services\Sound\AutoCorrelator.cs" />
-    <Compile Include="MiddleTier\Services\Sound\DataStructures\PitchShifter.cs" />
-    <Compile Include="MiddleTier\Services\Sound\HotkeyAudioDevice.cs" />
-    <Compile Include="MiddleTier\Services\Sound\JoeWaveInProvider.cs" />
-    <Compile Include="MiddleTier\Services\Sound\JoeWaveOut.cs" />
-    <Compile Include="MiddleTier\Services\Sound\MainAudio.cs" />
-    <Compile Include="MiddleTier\Services\Sound\DataStructures\SmbPitchShift.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\CustomHotkeyEditForm\HotkeyEditAudioAutoTunePassthroughForm.cs">
@@ -252,9 +201,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MitchHotkeys.Data\MitchHotkeys.Data.csproj">
+      <Project>{4540f159-aa88-4509-a7fe-be503dbc6aa4}</Project>
+      <Name>MitchHotkeys.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MitchHotkeys.Logic.Models\MitchHotkeys.Logic.Models.csproj">
       <Project>{ab180ea6-f5b2-4896-8a64-13336277b5a1}</Project>
       <Name>MitchHotkeys.Logic.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MitchHotkeys.Logic\MitchHotkeys.Logic.csproj">
+      <Project>{3c89d21f-1e2c-4844-8f28-17073ddbfe23}</Project>
+      <Name>MitchHotkeys.Logic</Name>
     </ProjectReference>
     <ProjectReference Include="..\MitchHotkeys.UI.Models\MitchHotkeys.UI.Models.csproj">
       <Project>{cef5795b-07aa-4525-ac4e-2715be882731}</Project>
@@ -265,6 +222,7 @@
       <Name>MitchHotkeys.UI.WPF</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
