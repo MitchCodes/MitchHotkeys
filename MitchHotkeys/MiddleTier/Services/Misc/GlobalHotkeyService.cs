@@ -9,7 +9,7 @@ using System.Windows.Input;
 using System.Windows.Interop;
 using System.Net.Mime;
 using System.Runtime.InteropServices;
-using MitchHotkeys.MiddleTier.Model;
+using MitchHotkeys.Logic.Models;
 
 namespace MitchHotkeys.MiddleTier.Services.Misc
 {
@@ -44,20 +44,6 @@ namespace MitchHotkeys.MiddleTier.Services.Misc
         {
             get { return _mainFormHandle; }
             set { _mainFormHandle = value; }
-        }
-
-        public enum KeyModifier
-        {
-            None = 0,
-            Alt = 1,
-            Control = 2,
-            Shift = 4,
-            WinKey = 8,
-            CtrlAlt = 3,
-            CtrlShift = 6,
-            AltShift = 5,
-            CtrlWinKey = 10,
-            CtrlAltShift = 7
         }
 
         public void RegisterHotKey(Hotkey hotkey)

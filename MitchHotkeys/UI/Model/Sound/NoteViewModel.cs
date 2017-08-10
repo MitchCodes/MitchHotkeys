@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MitchHotkeys.MiddleTier.Model.Sound;
+using MitchHotkeys.Logic.Models;
+using MitchHotkeys.Logic.Models.Sound;
 
 namespace MitchHotkeys.UI.Model.Sound
 {

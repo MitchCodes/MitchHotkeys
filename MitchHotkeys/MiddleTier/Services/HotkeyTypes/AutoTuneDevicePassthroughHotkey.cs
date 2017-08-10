@@ -1,11 +1,11 @@
-﻿using MitchHotkeys.MiddleTier.Model;
-using MitchHotkeys.MiddleTier.Model.Sound;
-using MitchHotkeys.MiddleTier.Services.Sound;
+﻿using MitchHotkeys.MiddleTier.Services.Sound;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MitchHotkeys.Logic.Models;
+using MitchHotkeys.Logic.Models.Sound;
 
 namespace MitchHotkeys.MiddleTier.Services.HotkeyTypes
 {

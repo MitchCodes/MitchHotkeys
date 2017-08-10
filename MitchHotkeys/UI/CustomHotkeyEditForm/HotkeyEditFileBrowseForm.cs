@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Windows.Forms;
 using MitchHotkeys.MiddleTier.Factories;
-using MitchHotkeys.MiddleTier.Model;
 using MitchHotkeys.MiddleTier.Services.Misc;
 using MitchHotkeys.UI.Model;
 using MitchHotkeys.UI.Model.Validation;
 using MitchHotkeys.UI.Services;
+using MitchHotkeys.Logic.Models;
 
 namespace MitchHotkeys.UI.CustomHotkeyEditForm
 {
@@ -23,7 +23,7 @@ namespace MitchHotkeys.UI.CustomHotkeyEditForm
         {
             InitializeComponent();
             cbCommand.DataSource = Enum.GetValues(typeof(HotkeyTypeEnum));
-            cbModifier.DataSource = Enum.GetValues(typeof(GlobalHotkeyService.KeyModifier));
+            cbModifier.DataSource = Enum.GetValues(typeof(KeyModifier));
             cbKey.DataSource = Enum.GetValues(typeof(Keys));
         }
 
@@ -31,13 +31,13 @@ namespace MitchHotkeys.UI.CustomHotkeyEditForm
         {
             InitializeComponent();
             cbCommand.DataSource = Enum.GetValues(typeof(HotkeyTypeEnum));
-            cbModifier.DataSource = Enum.GetValues(typeof(GlobalHotkeyService.KeyModifier));
+            cbModifier.DataSource = Enum.GetValues(typeof(KeyModifier));
             cbKey.DataSource = Enum.GetValues(typeof(Keys));
 
 
             cbCommand.SelectedItem = (HotkeyTypeEnum) hotkey.Command;
             cbCommand.Enabled = false;
-            cbModifier.SelectedItem = (GlobalHotkeyService.KeyModifier)hotkey.Modifier;
+            cbModifier.SelectedItem = (KeyModifier)hotkey.Modifier;
             cbKey.SelectedItem = (Keys)hotkey.Key;
             tbExtraData1.Text = hotkey.ExtraData1;
             tbExtraData2.Text = hotkey.ExtraData2;
@@ -54,7 +54,7 @@ namespace MitchHotkeys.UI.CustomHotkeyEditForm
             int command = (int)((HotkeyTypeEnum)cbCommand.SelectedValue);
             Hotkey tempHotkey = HotkeyTypeFactory.GetHotkeyType(command);
             tempHotkey.Command = command;
-            tempHotkey.Modifier = (int)((GlobalHotkeyService.KeyModifier)cbModifier.SelectedValue);
+            tempHotkey.Modifier = (int)((KeyModifier)cbModifier.SelectedValue);
             tempHotkey.Key = (int)((Keys)cbKey.SelectedValue);
             tempHotkey.ExtraData1 = tbExtraData1.Text;
             tempHotkey.ExtraData2 = tbExtraData2.Text;

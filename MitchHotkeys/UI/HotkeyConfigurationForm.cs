@@ -10,10 +10,10 @@ using System.Windows.Forms;
 using MitchHotkeys.DataTier;
 using MitchHotkeys.MiddleTier;
 using MitchHotkeys.MiddleTier.Factories;
-using MitchHotkeys.MiddleTier.Model;
 using MitchHotkeys.MiddleTier.Services.Misc;
 using MitchHotkeys.UI.Factories;
 using MitchHotkeys.UI.Model;
+using MitchHotkeys.Logic.Models;
 
 namespace MitchHotkeys
 {

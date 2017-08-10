@@ -1,6 +1,7 @@
-﻿using MitchHotkeys.MiddleTier.Model.Sound;
-using System;
+﻿using System;
 using System.Diagnostics;
+using MitchHotkeys.Logic.Models;
+using MitchHotkeys.Logic.Models.Sound;
 
 namespace MitchHotkeys.MiddleTier.Services.Sound
 {

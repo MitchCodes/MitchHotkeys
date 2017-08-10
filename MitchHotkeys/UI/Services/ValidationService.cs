@@ -1,5 +1,4 @@
-﻿using MitchHotkeys.MiddleTier.Model;
-using MitchHotkeys.MiddleTier.Services.Sound;
+﻿using MitchHotkeys.MiddleTier.Services.Sound;
 using MitchHotkeys.UI.Model.Validation;
 using System;
 using System.Collections.Generic;
@@ -7,6 +6,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MitchHotkeys.Logic.Models;
+using MitchHotkeys.Logic.Models.Sound;
 
 namespace MitchHotkeys.UI.Services
 {

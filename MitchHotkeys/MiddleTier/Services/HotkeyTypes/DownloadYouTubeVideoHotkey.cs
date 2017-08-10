@@ -1,5 +1,4 @@
 ﻿using System;
-using MitchHotkeys.MiddleTier.Model;
 using MitchHotkeys.MiddleTier.Services.Sound;
 using MitchHotkeys.UI.Services;
 using MitchHotkeys.UI.Model.HotkeyInputForms;
@@ -9,6 +8,7 @@ using System.IO;
 using MediaToolkit;
 using MediaToolkit.Model;
 using MediaToolkit.Options;
+using MitchHotkeys.Logic.Models;
 
 namespace MitchHotkeys.MiddleTier.Services.HotkeyTypes
 {

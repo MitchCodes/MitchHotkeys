@@ -2,7 +2,8 @@
 // http://decabear.com/awesomebox.html
 using System;
 using NAudio.Wave;
-using MitchHotkeys.MiddleTier.Model.Sound;
+using MitchHotkeys.Logic.Models;
+using MitchHotkeys.Logic.Models.Sound;
 
 namespace MitchHotkeys.MiddleTier.Services.Sound
 {

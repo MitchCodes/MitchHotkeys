@@ -8,9 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MitchHotkeys.MiddleTier;
-using MitchHotkeys.MiddleTier.Model;
 using MitchHotkeys.MiddleTier.Services.Misc;
 using System.Windows.Forms.Integration;
+using MitchHotkeys.UI.Model;
+using MitchHotkeys.Logic.Models;
 
 namespace MitchHotkeys
 {
@@ -36,7 +37,7 @@ namespace MitchHotkeys
                  * The below lines are useful in case you want to register multiple keys, which you can use a switch with the id as argument, or if you want to know which key/modifier was pressed for some particular reason. */
 
                 //Keys key = (Keys)(((int)m.LParam >> 16) & 0xFFFF);                  // The key of the hotkey that was pressed.
-                //GlobalHotkeyService.KeyModifier modifier = (GlobalHotkeyService.KeyModifier)((int)m.LParam & 0xFFFF);       // The modifier of the hotkey that was pressed.
+                //KeyModifier modifier = (KeyModifier)((int)m.LParam & 0xFFFF);       // The modifier of the hotkey that was pressed.
                 int key = (((int)m.LParam >> 16) & 0xFFFF);                  // The key of the hotkey that was pressed.
                 int modifier = ((int)m.LParam & 0xFFFF);       // The modifier of the hotkey that was pressed.
                 int id = m.WParam.ToInt32();                                        // The id of the hotkey that was pressed.
@@ -60,8 +61,7 @@ namespace MitchHotkeys
             ml.DoCleanup();
         }
 
-        private void btnConfigure_Click(object sender, EventArgs e)
-        {
+        private void btnConfigure_Click(object sender, EventArgs e) {
             if (GroupLoaded) {
                 if (Constants.UseXaml) {
                     //GroupConfiguration grpConfig = new GroupConfiguration(MainLogic.Instance.Hotkeys);

@@ -7,7 +7,8 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Windows;
 using System.Threading;
-using MitchHotkeys.MiddleTier.Model.Sound;
+using MitchHotkeys.Logic.Models;
+using MitchHotkeys.Logic.Models.Sound;
 
 namespace MitchHotkeys.UI.Model.Sound
 {

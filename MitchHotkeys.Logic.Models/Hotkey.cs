@@ -1,15 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MitchHotkeys.MiddleTier.Factories;
-using MitchHotkeys.MiddleTier.Services.Misc;
 
-namespace MitchHotkeys.MiddleTier.Model
-{
-
+namespace MitchHotkeys.Logic.Models {
     public class Hotkey: IHotkeyEvents
     {
         private int _modifier;
@@ -112,9 +105,9 @@ namespace MitchHotkeys.MiddleTier.Model
             get { return (HotkeyTypeEnum) Command; }
         }
 
-        public GlobalHotkeyService.KeyModifier ModifierEnum
+        public KeyModifier ModifierEnum
         {
-            get { return (GlobalHotkeyService.KeyModifier)Modifier; }
+            get { return (KeyModifier)Modifier; }
         }
 
         public Keys KeyEnum
@@ -162,25 +155,5 @@ namespace MitchHotkeys.MiddleTier.Model
         {
             throw new NotImplementedException();
         }
-    }
-
-    public enum HotkeyAdditionalDataType
-    {
-        DeviceThree = 0,
-        AutoTuneAttack = 1,
-        AutoTuneVibratoRate = 2,
-        AutoTunePitchC = 3,
-        AutoTunePitchCSharp = 4,
-        AutoTunePitchD = 5,
-        AutoTunePitchDSharp = 6,
-        AutoTunePitchE = 7,
-        AutoTunePitchF = 8,
-        AutoTunePitchFSharp = 9,
-        AutoTunePitchG = 10,
-        AutoTunePitchGSharp = 11,
-        AutoTunePitchA = 12,
-        AutoTunePitchASharp = 13,
-        AutoTunePitchB = 14,
-        ExtraData4 = 15
     }
 }

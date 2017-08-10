@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MitchHotkeys.Logic.Models;
 
 namespace MitchHotkeys.UI.Services
 {

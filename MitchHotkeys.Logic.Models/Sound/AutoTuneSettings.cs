@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace MitchHotkeys.MiddleTier.Model.Sound
+namespace MitchHotkeys.Logic.Models.Sound
 {
     public class AutoTuneSettings
     {

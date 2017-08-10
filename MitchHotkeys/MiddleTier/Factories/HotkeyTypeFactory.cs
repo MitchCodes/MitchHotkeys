@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MitchHotkeys.MiddleTier.Model;
 using MitchHotkeys.MiddleTier.Services.HotkeyTypes;
+using MitchHotkeys.Logic.Models;
 
 namespace MitchHotkeys.MiddleTier.Factories
 {

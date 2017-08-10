@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Interop;
-using MitchHotkeys.MiddleTier.Model;
+using MitchHotkeys.Logic.Models;
 
 namespace MitchHotkeys.MiddleTier.Services.Misc
 {

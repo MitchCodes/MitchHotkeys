@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MitchHotkeys", "MitchHotkey
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MitchHotkeys.UI.WPF", "MitchHotkeys.UI.WPF\MitchHotkeys.UI.WPF.csproj", "{B3BE5090-9889-491A-8531-CDB58ABEF20A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MitchHotkeys.UI.Models", "MitchHotkeys.UI.Models\MitchHotkeys.UI.Models.csproj", "{CEF5795B-07AA-4525-AC4E-2715BE882731}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MitchHotkeys.Logic.Models", "MitchHotkeys.Logic.Models\MitchHotkeys.Logic.Models.csproj", "{AB180EA6-F5B2-4896-8A64-13336277B5A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{B3BE5090-9889-491A-8531-CDB58ABEF20A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3BE5090-9889-491A-8531-CDB58ABEF20A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3BE5090-9889-491A-8531-CDB58ABEF20A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEF5795B-07AA-4525-AC4E-2715BE882731}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEF5795B-07AA-4525-AC4E-2715BE882731}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEF5795B-07AA-4525-AC4E-2715BE882731}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEF5795B-07AA-4525-AC4E-2715BE882731}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB180EA6-F5B2-4896-8A64-13336277B5A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB180EA6-F5B2-4896-8A64-13336277B5A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB180EA6-F5B2-4896-8A64-13336277B5A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB180EA6-F5B2-4896-8A64-13336277B5A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

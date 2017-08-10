@@ -2,12 +2,12 @@
 using System.IO;
 using System.Windows.Forms;
 using MitchHotkeys.MiddleTier.Factories;
-using MitchHotkeys.MiddleTier.Model;
 using MitchHotkeys.MiddleTier.Services.Misc;
 using MitchHotkeys.MiddleTier.Services.Sound;
 using MitchHotkeys.UI.Model;
 using MitchHotkeys.UI.Model.Validation;
 using MitchHotkeys.UI.Services;
+using MitchHotkeys.Logic.Models;
 
 namespace MitchHotkeys.UI.CustomHotkeyEditForm
 {
@@ -25,7 +25,7 @@ namespace MitchHotkeys.UI.CustomHotkeyEditForm
         {
             InitializeComponent();
             cbCommand.DataSource = Enum.GetValues(typeof(HotkeyTypeEnum));
-            cbModifier.DataSource = Enum.GetValues(typeof(GlobalHotkeyService.KeyModifier));
+            cbModifier.DataSource = Enum.GetValues(typeof(KeyModifier));
             cbKey.DataSource = Enum.GetValues(typeof(Keys));
         }
 
@@ -33,7 +33,7 @@ namespace MitchHotkeys.UI.CustomHotkeyEditForm
         {
             InitializeComponent();
             cbCommand.DataSource = Enum.GetValues(typeof(HotkeyTypeEnum));
-            cbModifier.DataSource = Enum.GetValues(typeof(GlobalHotkeyService.KeyModifier));
+            cbModifier.DataSource = Enum.GetValues(typeof(KeyModifier));
             cbKey.DataSource = Enum.GetValues(typeof(Keys));
 
             foreach (HotkeyAudioDevice currentDevice in MainAudio.Instance.AudioInputDevices)
@@ -53,7 +53,7 @@ namespace MitchHotkeys.UI.CustomHotkeyEditForm
 
             cbCommand.SelectedItem = (HotkeyTypeEnum)hotkey.Command;
             cbCommand.Enabled = false;
-            cbModifier.SelectedItem = (GlobalHotkeyService.KeyModifier)hotkey.Modifier;
+            cbModifier.SelectedItem = (KeyModifier)hotkey.Modifier;
             cbKey.SelectedItem = (Keys)hotkey.Key;
 
             cbInputDeviceOne.SelectedItem = hotkey.ExtraData1;
@@ -117,7 +117,7 @@ namespace MitchHotkeys.UI.CustomHotkeyEditForm
             int command = (int)((HotkeyTypeEnum)cbCommand.SelectedValue);
             Hotkey tempHotkey = HotkeyTypeFactory.GetHotkeyType(command);
             tempHotkey.Command = command;
-            tempHotkey.Modifier = (int)((GlobalHotkeyService.KeyModifier)cbModifier.SelectedValue);
+            tempHotkey.Modifier = (int)((KeyModifier)cbModifier.SelectedValue);
             tempHotkey.Key = (int)((Keys)cbKey.SelectedValue);
             if (cbInputDeviceOne.SelectedItem != null)
             {

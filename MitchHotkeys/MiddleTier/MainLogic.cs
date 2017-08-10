@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MitchHotkeys.DataTier;
-using MitchHotkeys.MiddleTier.Model;
 using MitchHotkeys.MiddleTier.Services.Misc;
 using MitchHotkeys.MiddleTier.Services.Sound;
+using MitchHotkeys.Logic.Models;
 
 namespace MitchHotkeys.MiddleTier
 {

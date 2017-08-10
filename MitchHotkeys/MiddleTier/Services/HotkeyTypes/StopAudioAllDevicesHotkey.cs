@@ -1,6 +1,6 @@
 ﻿using System;
-using MitchHotkeys.MiddleTier.Model;
 using MitchHotkeys.MiddleTier.Services.Sound;
+using MitchHotkeys.Logic.Models;
 
 namespace MitchHotkeys.MiddleTier.Services.HotkeyTypes
 {

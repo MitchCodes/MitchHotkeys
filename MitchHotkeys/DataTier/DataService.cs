@@ -6,8 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MitchHotkeys.MiddleTier.Factories;
-using MitchHotkeys.MiddleTier.Model;
 using System.IO;
+using MitchHotkeys.Logic.Models;
 
 namespace MitchHotkeys.DataTier
 {

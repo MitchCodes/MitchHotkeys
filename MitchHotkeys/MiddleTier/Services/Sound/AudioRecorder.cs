@@ -1,12 +1,13 @@
-﻿using MitchHotkeys.MiddleTier.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NAudio.Wave;
 using System.Collections.Concurrent;
-using MitchHotkeys.MiddleTier.Model.GenericStructures;
+using MitchHotkeys.Logic.Models;
+using MitchHotkeys.Logic.Models.GenericStructures;
+using MitchHotkeys.Logic.Models.Sound;
 
 namespace MitchHotkeys.MiddleTier.Services.Sound
 {

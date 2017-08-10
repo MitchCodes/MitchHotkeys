@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MitchHotkeys.MiddleTier.Model.GenericStructures
+namespace MitchHotkeys.Logic.Models.GenericStructures
 {
     public class ReadWriteBuffer
     {

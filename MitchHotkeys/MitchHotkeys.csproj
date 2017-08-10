@@ -75,6 +75,7 @@
     <Compile Include="GroupEditForm.Designer.cs">
       <DependentUpon>GroupEditForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MiddleTier\Services\Sound\AudioPassthroughSettings.cs" />
     <Compile Include="UI\HotkeyConfigurationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,14 +96,6 @@
     </Compile>
     <Compile Include="MiddleTier\Factories\HotkeyTypeFactory.cs" />
     <Compile Include="MiddleTier\MainLogic.cs" />
-    <Compile Include="MiddleTier\Model\GenericStructures\ReadWriteBuffer.cs" />
-    <Compile Include="MiddleTier\Model\Hotkey.cs" />
-    <Compile Include="MiddleTier\Model\HotkeyGroup.cs" />
-    <Compile Include="MiddleTier\Model\HotkeyTypeEnum.cs" />
-    <Compile Include="MiddleTier\Model\IHotkeyEvents.cs" />
-    <Compile Include="MiddleTier\Model\Sound\AudioPassthroughSettings.cs" />
-    <Compile Include="MiddleTier\Model\Sound\AutoTuneSettings.cs" />
-    <Compile Include="MiddleTier\Model\Sound\IPitchDetector.cs" />
     <Compile Include="MiddleTier\Services\HotkeyTypes\AutoTuneDevicePassthroughHotkey.cs" />
     <Compile Include="MiddleTier\Services\HotkeyTypes\ChangeAudioVolumeHotkey.cs" />
     <Compile Include="MiddleTier\Services\HotkeyTypes\DevicePassthroughHotkey.cs" />
@@ -256,6 +249,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MitchHotkeys.Logic.Models\MitchHotkeys.Logic.Models.csproj">
+      <Project>{ab180ea6-f5b2-4896-8a64-13336277b5a1}</Project>
+      <Name>MitchHotkeys.Logic.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MitchHotkeys.UI.Models\MitchHotkeys.UI.Models.csproj">
+      <Project>{cef5795b-07aa-4525-ac4e-2715be882731}</Project>
+      <Name>MitchHotkeys.UI.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MitchHotkeys.UI.WPF\MitchHotkeys.UI.WPF.csproj">
       <Project>{b3be5090-9889-491a-8531-cdb58abef20a}</Project>
       <Name>MitchHotkeys.UI.WPF</Name>

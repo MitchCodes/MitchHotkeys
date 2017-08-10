@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MitchHotkeys.MiddleTier.Model;
 using MitchHotkeys.MiddleTier.Services.HotkeyTypes;
 using MitchHotkeys.UI.CustomHotkeyEditForm;
+using MitchHotkeys.Logic.Models;
 
 namespace MitchHotkeys.UI.Factories
 {
