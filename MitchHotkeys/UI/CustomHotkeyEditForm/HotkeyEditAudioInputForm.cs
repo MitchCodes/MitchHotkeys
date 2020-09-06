@@ -10,7 +10,7 @@ using MitchHotkeys.Logic.Services.Sound;
 
 namespace MitchHotkeys.UI.CustomHotkeyEditForm
 {
-    public partial class HotkeyEditAudioInputForm : Form, IHotkeyForm
+    public partial class HotkeyEditAudioInputForm : Form, IHotkeyForm, ISupportBulkDataEdit
     {
         private Hotkey _hotkey;
 
@@ -20,7 +20,12 @@ namespace MitchHotkeys.UI.CustomHotkeyEditForm
             set { _hotkey = value; }
         }
 
-        public HotkeyEditAudioInputForm()
+        public bool EditHotkeyData1 { get; set; }
+        public bool EditHotkeyData2 { get; set; }
+        public bool EditHotkeyData3 { get; set; }
+        public bool EditHotkeyData4 { get; set; }
+
+        public HotkeyEditAudioInputForm(bool setupBulkEditMode = false)
         {
             InitializeComponent();
             cbCommand.DataSource = Enum.GetValues(typeof(HotkeyTypeEnum));
@@ -28,7 +33,7 @@ namespace MitchHotkeys.UI.CustomHotkeyEditForm
             cbKey.DataSource = Enum.GetValues(typeof(Keys));
         }
 
-        public HotkeyEditAudioInputForm(Hotkey hotkey)
+        public HotkeyEditAudioInputForm(Hotkey hotkey, bool setupBulkEditMode = false)
         {
             InitializeComponent();
             cbCommand.DataSource = Enum.GetValues(typeof(HotkeyTypeEnum));
@@ -52,6 +57,24 @@ namespace MitchHotkeys.UI.CustomHotkeyEditForm
             tbExtraData1.Text = hotkey.ExtraData1;
             cbDevices.SelectedItem = hotkey.ExtraData2;
             tbExtraData3.Text = hotkey.ExtraData3;
+        }
+
+        private void SetupBulkEditControls(bool isBulkEditMode)
+        {
+            if (isBulkEditMode)
+            {
+                chkDataOneEdit.Enabled = true;
+                chkDataTwoEdit.Enabled = true;
+                chkDataThreeEdit.Enabled = true;
+                chkDataFourEdit.Enabled = true;
+            }
+            else
+            {
+                chkDataOneEdit.Enabled = false;
+                chkDataTwoEdit.Enabled = false;
+                chkDataThreeEdit.Enabled = false;
+                chkDataFourEdit.Enabled = false;
+            }
         }
 
         private void ChangeLabels(Hotkey hotkey)
@@ -115,6 +138,12 @@ namespace MitchHotkeys.UI.CustomHotkeyEditForm
             tempHotkey.Modifier = (int)((KeyModifier)cbModifier.SelectedValue);
             tempHotkey.Key = (int)((Keys)cbKey.SelectedValue);
             tempHotkey.ExtraData1 = tbExtraData1.Text;
+
+            EditHotkeyData1 = chkDataOneEdit.Checked;
+            EditHotkeyData2 = chkDataTwoEdit.Checked;
+            EditHotkeyData3 = chkDataThreeEdit.Checked;
+            EditHotkeyData4 = chkDataFourEdit.Checked;
+
             if (cbDevices.SelectedItem != null)
             {
                 tempHotkey.ExtraData2 = cbDevices.SelectedItem.ToString();

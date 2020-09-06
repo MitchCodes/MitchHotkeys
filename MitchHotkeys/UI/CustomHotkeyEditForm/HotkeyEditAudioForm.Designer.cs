@@ -45,12 +45,16 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.cbDevicesTwo = new System.Windows.Forms.ComboBox();
             this.cbDevicesThree = new System.Windows.Forms.ComboBox();
+            this.chkDataOneEdit = new System.Windows.Forms.CheckBox();
+            this.chkDataTwoEdit = new System.Windows.Forms.CheckBox();
+            this.chkDataThreeEdit = new System.Windows.Forms.CheckBox();
+            this.chkDataFourEdit = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(277, 338);
+            this.btnSave.Location = new System.Drawing.Point(322, 338);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 0;
@@ -65,7 +69,7 @@
             this.cbKey.FormattingEnabled = true;
             this.cbKey.Location = new System.Drawing.Point(110, 22);
             this.cbKey.Name = "cbKey";
-            this.cbKey.Size = new System.Drawing.Size(242, 21);
+            this.cbKey.Size = new System.Drawing.Size(287, 21);
             this.cbKey.TabIndex = 1;
             // 
             // lblKey
@@ -97,7 +101,7 @@
             this.cbModifier.FormattingEnabled = true;
             this.cbModifier.Location = new System.Drawing.Point(110, 49);
             this.cbModifier.Name = "cbModifier";
-            this.cbModifier.Size = new System.Drawing.Size(242, 21);
+            this.cbModifier.Size = new System.Drawing.Size(287, 21);
             this.cbModifier.TabIndex = 3;
             // 
             // lblCommand
@@ -118,7 +122,7 @@
             this.cbCommand.FormattingEnabled = true;
             this.cbCommand.Location = new System.Drawing.Point(110, 76);
             this.cbCommand.Name = "cbCommand";
-            this.cbCommand.Size = new System.Drawing.Size(242, 21);
+            this.cbCommand.Size = new System.Drawing.Size(287, 21);
             this.cbCommand.TabIndex = 5;
             // 
             // lblED1
@@ -201,11 +205,55 @@
             this.cbDevicesThree.Size = new System.Drawing.Size(337, 21);
             this.cbDevicesThree.TabIndex = 16;
             // 
+            // chkDataOneEdit
+            // 
+            this.chkDataOneEdit.AutoSize = true;
+            this.chkDataOneEdit.Location = new System.Drawing.Point(358, 131);
+            this.chkDataOneEdit.Name = "chkDataOneEdit";
+            this.chkDataOneEdit.Size = new System.Drawing.Size(44, 17);
+            this.chkDataOneEdit.TabIndex = 18;
+            this.chkDataOneEdit.Text = "Edit";
+            this.chkDataOneEdit.UseVisualStyleBackColor = true;
+            // 
+            // chkDataTwoEdit
+            // 
+            this.chkDataTwoEdit.AutoSize = true;
+            this.chkDataTwoEdit.Location = new System.Drawing.Point(358, 185);
+            this.chkDataTwoEdit.Name = "chkDataTwoEdit";
+            this.chkDataTwoEdit.Size = new System.Drawing.Size(44, 17);
+            this.chkDataTwoEdit.TabIndex = 19;
+            this.chkDataTwoEdit.Text = "Edit";
+            this.chkDataTwoEdit.UseVisualStyleBackColor = true;
+            // 
+            // chkDataThreeEdit
+            // 
+            this.chkDataThreeEdit.AutoSize = true;
+            this.chkDataThreeEdit.Location = new System.Drawing.Point(358, 245);
+            this.chkDataThreeEdit.Name = "chkDataThreeEdit";
+            this.chkDataThreeEdit.Size = new System.Drawing.Size(44, 17);
+            this.chkDataThreeEdit.TabIndex = 20;
+            this.chkDataThreeEdit.Text = "Edit";
+            this.chkDataThreeEdit.UseVisualStyleBackColor = true;
+            // 
+            // chkDataFourEdit
+            // 
+            this.chkDataFourEdit.AutoSize = true;
+            this.chkDataFourEdit.Location = new System.Drawing.Point(358, 302);
+            this.chkDataFourEdit.Name = "chkDataFourEdit";
+            this.chkDataFourEdit.Size = new System.Drawing.Size(44, 17);
+            this.chkDataFourEdit.TabIndex = 21;
+            this.chkDataFourEdit.Text = "Edit";
+            this.chkDataFourEdit.UseVisualStyleBackColor = true;
+            // 
             // HotkeyEditAudioForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(364, 373);
+            this.ClientSize = new System.Drawing.Size(409, 373);
+            this.Controls.Add(this.chkDataFourEdit);
+            this.Controls.Add(this.chkDataThreeEdit);
+            this.Controls.Add(this.chkDataTwoEdit);
+            this.Controls.Add(this.chkDataOneEdit);
             this.Controls.Add(this.cbDevicesTwo);
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.btnSave);
@@ -248,5 +296,9 @@
         public System.Windows.Forms.Label lblED4;
         public System.Windows.Forms.ComboBox cbCommand;
         public System.Windows.Forms.TextBox tbExtraData1;
+        private System.Windows.Forms.CheckBox chkDataOneEdit;
+        private System.Windows.Forms.CheckBox chkDataTwoEdit;
+        private System.Windows.Forms.CheckBox chkDataThreeEdit;
+        private System.Windows.Forms.CheckBox chkDataFourEdit;
     }
 }

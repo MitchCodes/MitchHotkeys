@@ -221,5 +221,77 @@ namespace MitchHotkeys
         {
 
         }
+
+        private void btnBulkEditData_Click(object sender, EventArgs e)
+        {
+            if (dgvHotkeys.SelectedRows.Count > 0)
+            {
+                Hotkey selectedHotkey = (Hotkey)dgvHotkeys.SelectedRows[0].DataBoundItem;
+                if (selectedHotkey != null)
+                {
+                    Form hotkeyEdit = HotkeyEditFormFactory.GetHotkeyEditForm(selectedHotkey.Command, selectedHotkey, true);
+                    IHotkeyForm hotkeyEditConv = null;
+                    ISupportBulkDataEdit hotkeyBulkEdit = null;
+                    if (hotkeyEdit is IHotkeyForm && hotkeyEdit is ISupportBulkDataEdit)
+                    {
+                        hotkeyEditConv = (IHotkeyForm)hotkeyEdit;
+                        hotkeyBulkEdit = (ISupportBulkDataEdit)hotkeyEdit;
+                    }
+                    else
+                    {
+                        return;
+                    }
+                    DialogResult result = hotkeyEdit.ShowDialog();
+                    if (result == System.Windows.Forms.DialogResult.OK)
+                    {
+                        foreach(DataGridViewRow row in dgvHotkeys.Rows)
+                        {
+                            object dataBoundItem = row.DataBoundItem;
+                            if (dataBoundItem is Hotkey)
+                            {
+                                Hotkey rowHotkey = (Hotkey)dataBoundItem;
+                                if (rowHotkey.Command == hotkeyEditConv.Hotkey.Command)
+                                {
+                                    if (hotkeyBulkEdit.EditHotkeyData1)
+                                    {
+                                        rowHotkey.ExtraData1 = hotkeyEditConv.Hotkey.ExtraData1;
+                                    }
+
+                                    if (hotkeyBulkEdit.EditHotkeyData2)
+                                    {
+                                        rowHotkey.ExtraData2 = hotkeyEditConv.Hotkey.ExtraData2;
+                                    }
+
+                                    if (hotkeyBulkEdit.EditHotkeyData3)
+                                    {
+                                        rowHotkey.ExtraData3 = hotkeyEditConv.Hotkey.ExtraData3;
+                                    }
+
+                                    if (hotkeyBulkEdit.EditHotkeyData4)
+                                    {
+                                        if (hotkeyEditConv.Hotkey.AdditionalExtraData.ContainsKey((int)HotkeyAdditionalDataType.DeviceThree))
+                                        {
+                                            rowHotkey.AdditionalExtraData[(int)HotkeyAdditionalDataType.DeviceThree] = hotkeyEditConv.Hotkey.AdditionalExtraData[(int)HotkeyAdditionalDataType.DeviceThree];
+                                        }
+
+                                        if (hotkeyEditConv.Hotkey.AdditionalExtraData.ContainsKey((int)HotkeyAdditionalDataType.ExtraData4))
+                                        {
+                                            rowHotkey.AdditionalExtraData[(int)HotkeyAdditionalDataType.ExtraData4] = hotkeyEditConv.Hotkey.AdditionalExtraData[(int)HotkeyAdditionalDataType.ExtraData4];
+                                        }
+                                    }
+
+                                    //Hotkeys.Remove(selectedHotkey);
+                                    //RemovedHotkeys.Add(selectedHotkey);
+                                    //Hotkeys.Add(hotkeyEditConv.Hotkey);
+                                    //AddedHotkeys.Add(hotkeyEditConv.Hotkey);
+                                }
+                            }
+                        }
+
+                        dgvHotkeys.Refresh();
+                    }
+                }
+            }
+        }
     }
 }

@@ -15,19 +15,25 @@ using MitchHotkeys.Logic.Models;
 
 namespace MitchHotkeys
 {
-    public partial class HotkeyEditForm : Form, IHotkeyForm
+    public partial class HotkeyEditForm : Form, IHotkeyForm, ISupportBulkDataEdit
     {
         public Hotkey Hotkey { get; set; }
+        public bool EditHotkeyData1 { get; set; }
+        public bool EditHotkeyData2 { get; set; }
+        public bool EditHotkeyData3 { get; set; }
+        public bool EditHotkeyData4 { get; set; }
 
-        public HotkeyEditForm()
+        public HotkeyEditForm(bool bulkEditMode = false)
         {
             InitializeComponent();
             cbCommand.DataSource = Enum.GetValues(typeof(HotkeyTypeEnum));
             cbModifier.DataSource = Enum.GetValues(typeof(KeyModifier));
             cbKey.DataSource = Enum.GetValues(typeof(Keys));
+
+            SetupBulkEditControls(bulkEditMode);
         }
 
-        public HotkeyEditForm(Hotkey hotkey)
+        public HotkeyEditForm(Hotkey hotkey, bool bulkEditMode = false)
         {
             InitializeComponent();
             cbCommand.DataSource = Enum.GetValues(typeof(HotkeyTypeEnum));
@@ -43,6 +49,23 @@ namespace MitchHotkeys
 
             ChangeLabels(hotkey);
             ChangeEnabled(hotkey);
+
+            SetupBulkEditControls(bulkEditMode);
+        }
+
+        private void SetupBulkEditControls(bool isBulkEditMode)
+        {
+            if (isBulkEditMode) {
+                chkDataOneEdit.Enabled = true;
+                chkDataTwoEdit.Enabled = true;
+                chkDataThreeEdit.Enabled = true;
+                chkDataFourEdit.Enabled = true;
+            } else {
+                chkDataOneEdit.Enabled = false;
+                chkDataTwoEdit.Enabled = false;
+                chkDataThreeEdit.Enabled = false;
+                chkDataFourEdit.Enabled = false;
+            }
         }
 
         private void HotkeyEditForm_Load(object sender, EventArgs e)
@@ -60,6 +83,12 @@ namespace MitchHotkeys
             tempHotkey.ExtraData1 = tbExtraData1.Text;
             tempHotkey.ExtraData2 = tbExtraData2.Text;
             tempHotkey.ExtraData3 = tbExtraData3.Text;
+
+            EditHotkeyData1 = chkDataOneEdit.Checked;
+            EditHotkeyData2 = chkDataTwoEdit.Checked;
+            EditHotkeyData3 = chkDataThreeEdit.Checked;
+            EditHotkeyData4 = chkDataFourEdit.Checked;
+
             ValidationResult result = Validate(tempHotkey);
             if (result.HasErrors())
             {

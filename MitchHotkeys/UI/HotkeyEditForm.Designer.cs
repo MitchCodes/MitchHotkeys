@@ -43,12 +43,16 @@
             this.lblED2 = new System.Windows.Forms.Label();
             this.lblED3 = new System.Windows.Forms.Label();
             this.lblED4 = new System.Windows.Forms.Label();
+            this.chkDataOneEdit = new System.Windows.Forms.CheckBox();
+            this.chkDataTwoEdit = new System.Windows.Forms.CheckBox();
+            this.chkDataThreeEdit = new System.Windows.Forms.CheckBox();
+            this.chkDataFourEdit = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(277, 345);
+            this.btnSave.Location = new System.Drawing.Point(317, 345);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 0;
@@ -63,7 +67,7 @@
             this.cbKey.FormattingEnabled = true;
             this.cbKey.Location = new System.Drawing.Point(110, 22);
             this.cbKey.Name = "cbKey";
-            this.cbKey.Size = new System.Drawing.Size(242, 21);
+            this.cbKey.Size = new System.Drawing.Size(282, 21);
             this.cbKey.TabIndex = 1;
             // 
             // lblKey
@@ -95,7 +99,7 @@
             this.cbModifier.FormattingEnabled = true;
             this.cbModifier.Location = new System.Drawing.Point(110, 49);
             this.cbModifier.Name = "cbModifier";
-            this.cbModifier.Size = new System.Drawing.Size(242, 21);
+            this.cbModifier.Size = new System.Drawing.Size(282, 21);
             this.cbModifier.TabIndex = 3;
             // 
             // lblCommand
@@ -116,7 +120,7 @@
             this.cbCommand.FormattingEnabled = true;
             this.cbCommand.Location = new System.Drawing.Point(110, 76);
             this.cbCommand.Name = "cbCommand";
-            this.cbCommand.Size = new System.Drawing.Size(242, 21);
+            this.cbCommand.Size = new System.Drawing.Size(282, 21);
             this.cbCommand.TabIndex = 5;
             // 
             // tbExtraData1
@@ -156,8 +160,6 @@
             this.lblED1.Size = new System.Drawing.Size(46, 13);
             this.lblED1.TabIndex = 7;
             this.lblED1.Text = "Data #1";
-            
-            
             // 
             // lblED2
             // 
@@ -167,7 +169,6 @@
             this.lblED2.Size = new System.Drawing.Size(46, 13);
             this.lblED2.TabIndex = 9;
             this.lblED2.Text = "Data #2";
-            
             // 
             // lblED3
             // 
@@ -177,7 +178,6 @@
             this.lblED3.Size = new System.Drawing.Size(46, 13);
             this.lblED3.TabIndex = 11;
             this.lblED3.Text = "Data #3";
-            
             // 
             // lblED4
             // 
@@ -188,11 +188,55 @@
             this.lblED4.TabIndex = 13;
             this.lblED4.Text = "Data #4";
             // 
+            // chkDataOneEdit
+            // 
+            this.chkDataOneEdit.AutoSize = true;
+            this.chkDataOneEdit.Location = new System.Drawing.Point(356, 131);
+            this.chkDataOneEdit.Name = "chkDataOneEdit";
+            this.chkDataOneEdit.Size = new System.Drawing.Size(44, 17);
+            this.chkDataOneEdit.TabIndex = 15;
+            this.chkDataOneEdit.Text = "Edit";
+            this.chkDataOneEdit.UseVisualStyleBackColor = true;
+            // 
+            // chkDataTwoEdit
+            // 
+            this.chkDataTwoEdit.AutoSize = true;
+            this.chkDataTwoEdit.Location = new System.Drawing.Point(356, 185);
+            this.chkDataTwoEdit.Name = "chkDataTwoEdit";
+            this.chkDataTwoEdit.Size = new System.Drawing.Size(44, 17);
+            this.chkDataTwoEdit.TabIndex = 16;
+            this.chkDataTwoEdit.Text = "Edit";
+            this.chkDataTwoEdit.UseVisualStyleBackColor = true;
+            // 
+            // chkDataThreeEdit
+            // 
+            this.chkDataThreeEdit.AutoSize = true;
+            this.chkDataThreeEdit.Location = new System.Drawing.Point(356, 246);
+            this.chkDataThreeEdit.Name = "chkDataThreeEdit";
+            this.chkDataThreeEdit.Size = new System.Drawing.Size(44, 17);
+            this.chkDataThreeEdit.TabIndex = 17;
+            this.chkDataThreeEdit.Text = "Edit";
+            this.chkDataThreeEdit.UseVisualStyleBackColor = true;
+            // 
+            // chkDataFourEdit
+            // 
+            this.chkDataFourEdit.AutoSize = true;
+            this.chkDataFourEdit.Location = new System.Drawing.Point(356, 303);
+            this.chkDataFourEdit.Name = "chkDataFourEdit";
+            this.chkDataFourEdit.Size = new System.Drawing.Size(44, 17);
+            this.chkDataFourEdit.TabIndex = 18;
+            this.chkDataFourEdit.Text = "Edit";
+            this.chkDataFourEdit.UseVisualStyleBackColor = true;
+            // 
             // HotkeyEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(364, 380);
+            this.ClientSize = new System.Drawing.Size(404, 380);
+            this.Controls.Add(this.chkDataFourEdit);
+            this.Controls.Add(this.chkDataThreeEdit);
+            this.Controls.Add(this.chkDataTwoEdit);
+            this.Controls.Add(this.chkDataOneEdit);
             this.Controls.Add(this.lblED4);
             this.Controls.Add(this.lblED3);
             this.Controls.Add(this.lblED2);
@@ -235,5 +279,9 @@
         private System.Windows.Forms.ComboBox cbModifier;
         
         private System.Windows.Forms.Label lblED4;
+        private System.Windows.Forms.CheckBox chkDataOneEdit;
+        private System.Windows.Forms.CheckBox chkDataTwoEdit;
+        private System.Windows.Forms.CheckBox chkDataThreeEdit;
+        private System.Windows.Forms.CheckBox chkDataFourEdit;
     }
 }

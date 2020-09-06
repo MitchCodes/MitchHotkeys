@@ -134,6 +134,7 @@
     </Compile>
     <Compile Include="UI\Model\HotkeyInputForms\TextInputResult.cs" />
     <Compile Include="UI\Model\IHotkeyForm.cs" />
+    <Compile Include="UI\Model\ISupportBulkDataEdit.cs" />
     <Compile Include="UI\Model\Sound\AutoTuneViewModel.cs" />
     <Compile Include="UI\Model\Sound\NoteViewModel.cs" />
     <Compile Include="UI\Model\Sound\Scales.cs" />

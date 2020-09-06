@@ -39,6 +39,7 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbAddType = new System.Windows.Forms.ComboBox();
+            this.btnBulkEditData = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHotkeys)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,11 +126,22 @@
             this.cbAddType.Size = new System.Drawing.Size(155, 21);
             this.cbAddType.TabIndex = 4;
             // 
+            // btnBulkEditData
+            // 
+            this.btnBulkEditData.Location = new System.Drawing.Point(386, 415);
+            this.btnBulkEditData.Name = "btnBulkEditData";
+            this.btnBulkEditData.Size = new System.Drawing.Size(128, 23);
+            this.btnBulkEditData.TabIndex = 5;
+            this.btnBulkEditData.Text = "Bulk Edit Data of Type";
+            this.btnBulkEditData.UseVisualStyleBackColor = true;
+            this.btnBulkEditData.Click += new System.EventHandler(this.btnBulkEditData_Click);
+            // 
             // HotkeyConfigurationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(668, 450);
+            this.Controls.Add(this.btnBulkEditData);
             this.Controls.Add(this.cbAddType);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
@@ -158,5 +170,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.ComboBox cbAddType;
+        private System.Windows.Forms.Button btnBulkEditData;
     }
 }
