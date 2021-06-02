@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using AutoMapper;
 using AutoMapper.Configuration;
 using MitchHotkeys.UI.WPF.Mapper;
+using ESpeakWrapper;
 
 namespace MitchHotkeys
 {
@@ -19,6 +20,16 @@ namespace MitchHotkeys
             Mapper.Initialize(MapperConfig);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            try
+            {
+                ESpeakWrapper.Client.Initialize(@"C:\Program Files\eSpeak NG");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error loading espeak: " + ex.Message + ", Stack: " + ex.StackTrace);
+            }
+
             Application.Run(new MainForm());
         }
 
