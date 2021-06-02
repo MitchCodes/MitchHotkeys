@@ -22,6 +22,7 @@ namespace MitchHotkeys.UI.Factories
                 case HotkeyTypeEnum.StepUpAudioVolume:
                 case HotkeyTypeEnum.StepDownAudioVolume:
                 case HotkeyTypeEnum.StopAudioAllDevices:
+                case HotkeyTypeEnum.ESpeak:
                     return new HotkeyEditAudioForm(hotkey, bulkEdit);
                 case HotkeyTypeEnum.StartRecordingInputDevice:
                 case HotkeyTypeEnum.StopRecordingInputDevice:

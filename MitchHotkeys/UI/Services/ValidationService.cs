@@ -100,6 +100,25 @@ namespace MitchHotkeys.UI.Services
                             ValidateStringIsDeviceName(hotkey.AdditionalExtraData[(int)HotkeyAdditionalDataType.DeviceThree], result, AudioDeviceType.Output);
                         }
                         break;
+                    case HotkeyTypeEnum.ESpeak:
+                        if (String.IsNullOrWhiteSpace(hotkey.ExtraData2))
+                        {
+                            result.Errors.Add(new ValidationException("Need to enter at least the first audio device"));
+                            result.Status = ValidationResultStatus.Error;
+                        }
+                        if (!String.IsNullOrWhiteSpace(hotkey.ExtraData2))
+                        {
+                            ValidateStringIsDeviceName(hotkey.ExtraData2, result, AudioDeviceType.Output);
+                        }
+                        if (!String.IsNullOrWhiteSpace(hotkey.ExtraData3))
+                        {
+                            ValidateStringIsDeviceName(hotkey.ExtraData3, result, AudioDeviceType.Output);
+                        }
+                        if (hotkey.AdditionalExtraData != null && hotkey.AdditionalExtraData.ContainsKey((int)HotkeyAdditionalDataType.DeviceThree) && !String.IsNullOrWhiteSpace(hotkey.AdditionalExtraData[(int)HotkeyAdditionalDataType.DeviceThree]))
+                        {
+                            ValidateStringIsDeviceName(hotkey.AdditionalExtraData[(int)HotkeyAdditionalDataType.DeviceThree], result, AudioDeviceType.Output);
+                        }
+                        break;
                     case HotkeyTypeEnum.RunBatchSilently:
                         if (String.IsNullOrWhiteSpace(hotkey.ExtraData1) || !File.Exists(hotkey.ExtraData1))
                         {

@@ -43,6 +43,8 @@ namespace MitchHotkeys.Logic.Factories
                     return new AutoTuneDevicePassthroughHotkey();
                 case HotkeyTypeEnum.DevicePassthrough:
                     return new DevicePassthroughHotkey();
+                case HotkeyTypeEnum.ESpeak:
+                    return new ESpeakHotkey();
             }
             return new Hotkey();
         }

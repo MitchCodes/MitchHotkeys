@@ -32,12 +32,19 @@ namespace MitchHotkeys.UI.Services
         private HotkeyInputService()
         {
             MainLogic.Instance.InputCallbacks.TextResultRequestCallback += RequestTextInput;
+            MainLogic.Instance.InputCallbacks.TextResultRequestOnTopCallback += RequestTextInputOnTop;
             MainLogic.Instance.InputCallbacks.FileSaveRequestCallback += RequestFileSaveInput;
             MainLogic.Instance.InputCallbacks.DisplayInfoRequestCallback += RequestDisplayInfo;
         }
 
         public void RequestTextInput(string formText, TextInputResultDelegate result) {
             TextInputResult userResult = GetTextInput(formText);
+            result(userResult.Cancelled, userResult.Input);
+        }
+
+        public void RequestTextInputOnTop(string formText, TextInputResultDelegate result)
+        {
+            TextInputResult userResult = GetTextInputOnTop(formText);
             result(userResult.Cancelled, userResult.Input);
         }
 
@@ -59,6 +66,7 @@ namespace MitchHotkeys.UI.Services
             {
                 textInputForm.Text = formText;
             }
+
             DialogResult formResult = textInputForm.ShowDialog();
             if (formResult == DialogResult.Cancel)
             {
@@ -70,6 +78,43 @@ namespace MitchHotkeys.UI.Services
                 result.Cancelled = false;
                 result.Input = textInputForm.InputText;
             }
+
+            return result;
+        }
+
+        public TextInputResult GetTextInputOnTop(string formText = "")
+        {
+            TextInputResult result = new TextInputResult();
+            TextInput textInputForm = new TextInput();
+            if (!string.IsNullOrWhiteSpace(formText))
+            {
+                textInputForm.Text = formText;
+            }
+
+            IntPtr foregroundWindow = MainLogic.Instance.InputCallbacks.GetForegroundWindowCallback();
+
+            MainLogic.Instance.InputCallbacks.ShowMainFormOnTop();
+            DialogResult formResult = textInputForm.ShowDialog(MainLogic.Instance.InputCallbacks.GetMainForm());
+            textInputForm.Focus();
+            textInputForm.TopMost = true;
+            textInputForm.tbText.Focus();
+            //textInputForm.tbText.BringToFront();
+            if (formResult == DialogResult.Cancel)
+            {
+                result.Cancelled = true;
+                result.Input = "";
+            }
+            else
+            {
+                result.Cancelled = false;
+                result.Input = textInputForm.InputText;
+            }
+
+            textInputForm.TopMost = false;
+
+            MainLogic.Instance.InputCallbacks.StopMainFormOnTop();
+
+            MainLogic.Instance.InputCallbacks.SetForegroundWindowCallback(foregroundWindow);
 
             return result;
         }

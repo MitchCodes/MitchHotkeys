@@ -18,6 +18,7 @@
         SaveInputDeviceRecordingToMemory = 13,
         PlayInputDeviceRecordingFromMemory = 14,
         AutoTuneDevicePassthrough = 15,
-        DevicePassthrough = 16
+        DevicePassthrough = 16,
+        ESpeak = 17
     }
 }

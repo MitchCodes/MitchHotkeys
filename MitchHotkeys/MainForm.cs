@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,6 +19,16 @@ namespace MitchHotkeys
 {
     public partial class MainForm : Form
     {
+        [DllImport("user32.dll")]
+        static extern IntPtr GetForegroundWindow();
+
+        [DllImport("USER32.DLL")]
+        public static extern bool SetForegroundWindow(IntPtr hWnd);
+
+        [System.Runtime.InteropServices.DllImport("User32.dll")]
+        public static extern bool ShowWindow(IntPtr handle, int nCmdShow);
+
+
         private MainLogic ml = null;
         private HotkeyInputService _inputService;
         private bool GroupLoaded { get; set; }
@@ -57,6 +68,44 @@ namespace MitchHotkeys
             ml.DoStartup();
             cbGroups.DataSource = ml.HotkeyGroups;
             cbGroups.DisplayMember = "Name";
+
+            MainLogic.Instance.InputCallbacks.ShowMainFormOnTop += ShowMainFormOnTop;
+            MainLogic.Instance.InputCallbacks.StopMainFormOnTop += StopMainFormOnTop;
+            MainLogic.Instance.InputCallbacks.GetMainForm += ReturnMainForm;
+            MainLogic.Instance.InputCallbacks.GetForegroundWindowCallback += GetForegroundWindowCallback;
+            MainLogic.Instance.InputCallbacks.SetForegroundWindowCallback += SetForegroundWindowCallback;
+        }
+
+        private IntPtr GetForegroundWindowCallback()
+        {
+            return GetForegroundWindow();
+        }
+
+        private bool SetForegroundWindowCallback(IntPtr hWnd)
+        {
+            ShowWindow(hWnd, 9);
+            return SetForegroundWindow(hWnd);
+        }
+
+        private Form ReturnMainForm()
+        {
+            return this;
+        }
+
+        private void StopMainFormOnTop()
+        {
+            this.TopMost = false;
+            this.SendToBack();
+        }
+
+        private void ShowMainFormOnTop()
+        {
+            this.TopMost = true;
+            this.Focus();
+            this.BringToFront();
+            this.TopMost = false;
+
+            this.Activate();
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)

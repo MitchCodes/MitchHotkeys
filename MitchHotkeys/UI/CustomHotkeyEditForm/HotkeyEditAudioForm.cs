@@ -42,6 +42,12 @@ namespace MitchHotkeys.UI.CustomHotkeyEditForm
             cbModifier.DataSource = Enum.GetValues(typeof(KeyModifier));
             cbKey.DataSource = Enum.GetValues(typeof(Keys));
 
+            if (hotkey.CommandEnum == HotkeyTypeEnum.ESpeak)
+            {
+                tbExtraData1.Enabled = false;
+                btnBrowse.Enabled = false;
+            }
+
             foreach (HotkeyAudioDevice currentDevice in MainAudio.Instance.AudioOutputDevices)
             {
                 cbDevices.Items.Add(currentDevice.AudioDeviceName);
